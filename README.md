@@ -1,5 +1,5 @@
 # SQL-Advent-Calendar-Challenge from Dawn-Choo on LinkedIn
-24 days of SQL Challenges: questions and the solution queries I wrote for them.
+24 days of SQL Challenges: this repo contains the puzzles and solution queries I wrote to solve them.
 
 Thanks to Dawn Choo for providing this fun way to learn SQL on LinkedIn.
 
