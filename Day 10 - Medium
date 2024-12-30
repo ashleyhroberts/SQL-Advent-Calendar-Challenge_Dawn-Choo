@@ -7,7 +7,7 @@ You are tracking your friends' New Year’s resolution progress. Write a query t
 
 Table name: resolutions
 
-  resolution_id	friend_name	resolution	is_completed
+  resolution_id	  friend_name	  resolution	is_completed
   1	Alice	Exercise daily	1
   2	Alice	Read 20 books	0
   3	Bob	Save money	0
@@ -19,7 +19,7 @@ Table name: resolutions
   9	Diana	Sleep 8 hours	1
 Question level of difficulty: Medium
 
-Query I wrote:
+My Answer:
 
   SELECT
       friend_name,
