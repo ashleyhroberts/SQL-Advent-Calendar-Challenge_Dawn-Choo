@@ -18,7 +18,7 @@ My Answer:
     name,
     birthday
   FROM family_members
-  WHERE birthday LIKE '2024-12-%';
+  WHERE birthday LIKE '2024-12-%'; --SQLite does not allow the MONTH() function so I used "LIKE"
 
 Results:
   name	birthday
