@@ -1,0 +1,66 @@
+Today's Question:
+
+A travel agency is promoting activities for a "Summer Christmas" party. They want to identify the top 2 activities based on the average rating. Write a query to rank the activities by average rating.
+
+Table name: activities
+
+  activity_id	activity_name
+  1	Surfing Lessons
+  2	Jet Skiing
+  3	Sunset Yoga
+
+Table name: activity_ratings
+
+  rating_id	activity_id	rating
+  1	1	4.7
+  2	1	4.8
+  3	1	4.9
+  4	2	4.6
+  5	2	4.7
+  6	2	4.8
+  7	2	4.9
+  8	3	4.8
+  9	3	4.7
+  10	3	4.9
+  11	3	4.8
+  12	3	4.9
+
+Question level of difficulty: Hard
+
+My Answer:
+
+    WITH ActivityAvg AS (
+      SELECT 
+          act.activity_id,
+          act.activity_name,
+          AVG(ratings.rating) AS avg_rating
+      FROM activities AS act
+      INNER JOIN activity_ratings AS ratings
+      ON act.activity_id = ratings.activity_id
+      GROUP BY act.activity_name, act.activity_id
+  ),
+     RankedActivities AS (
+      SELECT      
+          activity_id,
+          activity_name,
+          avg_rating,
+          DENSE_RANK() OVER (ORDER BY avg_rating DESC) AS Rank 
+      FROM ActivityAvg
+     )
+  SELECT  
+      activity_id,
+      activity_name,
+      Rank,
+      avg_rating
+  FROM RankedActivities
+  ORDER BY Rank ASC
+  LIMIT 2;
+
+Results:
+
+  activity_id	activity_name	Rank	avg_rating
+  3	Sunset Yoga	1	4.82
+  1	Surfing Lessons	2	4.8
+
+Correct!! 🎉 Great work!
+  
